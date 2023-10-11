@@ -15,6 +15,12 @@ package com.example.ejerciciosentrega
         println(contar("pito", 'a'))
 
         println(contar2("pito pito", "it"))
+
+        println(ejer7("pito chico jaja, eres to gay mirate los apuntes pringao"))
+
+        println(ejer8(245))
+
+        println(ejer9(23, 29))
     }
 
 
@@ -94,5 +100,36 @@ package com.example.ejerciciosentrega
 
     //ejercicio7
     fun ejer7(frase: String):String{
+        var arrayPalabra = frase.split(" ")
+        var res="";
+        for (i in arrayPalabra.indices){
+            res+=arrayPalabra[i][0].uppercase()+arrayPalabra[i].substring(1)+" "
+        }
+        return res
+    }
 
+    //ejercicio8
+    fun ejer8 (numero:Int):Int{
+        var res = 0
+        var cifra = 0
+        var numero2 = numero
+        while (numero2%10!=0){
+            cifra=numero2%10
+            numero2 = numero2/10
+            res+=cifra
+        }
+        return res
+    }
+
+    //ejercicio9
+
+    fun ejer9(numero: Int, numero2: Int): Int{
+        var res=0
+
+        for (i in numero .. 0 ){
+            res=numero2%numero
+
+        }
+
+        return res
     }
