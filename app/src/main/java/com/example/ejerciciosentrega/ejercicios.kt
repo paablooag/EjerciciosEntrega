@@ -21,6 +21,18 @@ package com.example.ejerciciosentrega
         println(ejer8(245))
 
         println(ejer9(23, 29))
+
+        println(ejer10(9))
+
+        println(ejer11(12,12))
+
+        println(ejer12(5444))
+
+        println(ejer13("div.clase#POLO"))
+
+        println(ejer14(6))
+
+        println(ejer15(intArrayOf(1,2,3,4), intArrayOf(1,2,3,4)))
     }
 
 
@@ -133,3 +145,99 @@ package com.example.ejerciciosentrega
 
         return res
     }
+
+//ejercicio10
+fun ejer10(n: Int): Int {
+
+    var a = 0
+    var b = 1
+    var resultado = 0
+
+    for (i in 2..n) {
+        resultado = a + b
+        a = b
+        b = resultado
+        print(resultado)
+    }
+    return resultado
+}
+
+//ejercicio11
+    fun ejer11(n1:Int, n2:Int):Boolean{
+
+    var fact1=0
+    var fact2=0
+
+    for (n in 1 .. n1){
+        if(n1%n==0){
+            fact1=n
+        }
+    }
+    for (n in 1 .. n2){
+        if(n1%n==0){
+            fact2=n
+        }
+    }
+
+    if(fact1!=0 && fact2!=0){
+        if(fact1==fact2){
+            return false
+        }
+    }
+    return true
+    }
+
+//ejercicio12
+    fun ejer12(n:Int):Boolean{
+    var siono=false
+    var numero=""
+    var numero2=""
+
+        numero=n.toString()
+        numero2=numero.reversed()
+    if(numero.equals(numero2)){
+        siono=true
+    }
+    return siono
+    }
+
+//ejercicio13
+    fun ejer13(cadena:String):String{
+        var res=""
+        var id= cadena.split("#")
+        var id2 = id[0].split(".")
+        var div = cadena.split(".")
+         if(cadena.contains(".") && !cadena.contains("#")){
+            res="<div class="+div[1]+"</div>"
+        }else if(cadena.contains("#") && cadena.contains(".")){
+            res="<div class="+id2[1]+" id="+id[1]+"></div>"
+        }else{
+            res="<"+cadena+"><"+cadena+"/>"
+        }
+        return res
+    }
+
+//ejercicio14
+    fun ejer14(n:Int){
+        for (i in 1 .. n){
+            for (j in 1 .. i){
+                print(i)
+            }
+                println()
+        }
+    }
+
+//ejercicio15
+    fun ejer15(array1:IntArray, array2:IntArray):BooleanArray{
+       val resultado = BooleanArray(array1.size)
+
+       if(array1.indices==array2.indices){
+           for(i in array1.indices){
+               if(array1[i]==array2[i]){
+
+               }
+           }
+       }
+    return resultado
+    }
+
