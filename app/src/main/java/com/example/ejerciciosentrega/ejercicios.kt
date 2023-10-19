@@ -385,13 +385,19 @@ fun ejer29(text:String, text2:String):Boolean{
 }
 
 fun ejer30(number:Int):Boolean{
-    var res=0
-
-    for (i in 0 .. number){
-        res+=i
+    if(number<0){
+        return false
     }
 
-
+    var suma=0
+    var n=1
+    while(suma<number){
+        suma+=n
+        if(suma==number){
+            return true
+        }
+        return false
+    }
     return false
 }
 
