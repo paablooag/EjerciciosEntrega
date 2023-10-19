@@ -32,7 +32,11 @@ package com.example.ejerciciosentrega
 
         println(ejer14(6))
 
-        println(ejer15(intArrayOf(1,2,3,4), intArrayOf(1,2,3,4)))
+        val arrayA = intArrayOf(1,2,3,4,5)
+
+        val arrayB = intArrayOf(1,2,3,6,5)
+        val resultado=(ejer15(arrayA,arrayB))
+        println("Cmparacion de arrays: ${resultado.joinToString () }")
     }
 
 
@@ -229,15 +233,17 @@ fun ejer10(n: Int): Int {
 
 //ejercicio15
     fun ejer15(array1:IntArray, array2:IntArray):BooleanArray{
-       val resultado = BooleanArray(array1.size)
 
-       if(array1.indices==array2.indices){
-           for(i in array1.indices){
-               if(array1[i]==array2[i]){
+       var resultado = BooleanArray(array1.size)
 
-               }
-           }
-       }
+        for (i in array1.indices){
+            if(array1[i]!=array2[i]){
+                resultado[i]=false
+            }else{
+                resultado[i]=true
+            }
+        }
+
     return resultado
     }
 
