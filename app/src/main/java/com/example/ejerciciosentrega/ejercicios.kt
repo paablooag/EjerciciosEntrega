@@ -52,6 +52,8 @@ fun main() {
     println(ejer28("holapepe"))
 
     println(ejer29("paco", "paco"))
+
+    println(ejer30(6))
     }
 
 
@@ -380,5 +382,16 @@ fun ejer29(text:String, text2:String):Boolean{
         }
     }
     return  false
+}
+
+fun ejer30(number:Int):Boolean{
+    var res=0
+
+    for (i in 0 .. number){
+        res+=i
+    }
+
+
+    return false
 }
 
