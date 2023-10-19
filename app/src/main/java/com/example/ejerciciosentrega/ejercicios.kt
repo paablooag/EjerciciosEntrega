@@ -1,8 +1,9 @@
 package com.example.ejerciciosentrega
 
+import kotlin.math.ln
 
 
-    fun main() {
+fun main() {
         var array = arrayOf(1, 10, 3, 4)
         println(Maximo(array))
 
@@ -28,15 +29,29 @@ package com.example.ejerciciosentrega
 
         println(ejer12(5444))
 
-        println(ejer13("div.clase#POLO"))
+        println(ejer13("p.pito"))
 
         println(ejer14(6))
 
-        val arrayA = intArrayOf(1,2,3,4,5)
 
+        val arrayA = intArrayOf(1,2,3,4,5)
         val arrayB = intArrayOf(1,2,3,6,5)
         val resultado=(ejer15(arrayA,arrayB))
-        println("Cmparacion de arrays: ${resultado.joinToString () }")
+        println("Comparacion de arrays: ${resultado.joinToString () }")
+
+        println(ejer20(4))
+
+        println(ejer21("hola"))
+
+        println(ejer22(6))
+
+    println(ejer23(153))
+
+    println(ejer26("Hola bebe me llamo guacamole"))
+
+    println(ejer28("holapepe"))
+
+    println(ejer29("paco", "sydg"))
     }
 
 
@@ -212,9 +227,9 @@ fun ejer10(n: Int): Int {
         var id2 = id[0].split(".")
         var div = cadena.split(".")
          if(cadena.contains(".") && !cadena.contains("#")){
-            res="<div class="+div[1]+"</div>"
+            res="<"+div[0]+" class="+div[1]+"</div>"
         }else if(cadena.contains("#") && cadena.contains(".")){
-            res="<div class="+id2[1]+" id="+id[1]+"></div>"
+            res="<div"+id[0]+" class="+id2[1]+" id="+id[1]+"></div>"
         }else{
             res="<"+cadena+"><"+cadena+"/>"
         }
@@ -247,3 +262,111 @@ fun ejer10(n: Int): Int {
     return resultado
     }
 
+//ejercicio20
+fun ejer20(numero: Int):Int{
+    var factorial = 1
+    for (i in 1..numero) {
+        factorial *= i
+    }
+    return factorial
+}
+
+fun ejer21(palabra:String):String{
+    return palabra.reversed()
+}
+
+fun ejer22(numero:Int):Boolean{
+    var divisores=1
+    for (i in 2 .. numero/2){
+        if(numero%i==0){
+            divisores+=i
+        }
+    }
+    return divisores==numero
+}
+
+fun ejer23(numero:Int):Boolean{
+    var n=0
+    var n1=numero
+    var res=0
+    for (i in numero.toString()){
+        n=n1%10
+        n1=n1/10
+        res+= Math.pow(n.toDouble(), n1.toString().toDouble()).toInt()
+    }
+    return res==numero
+}
+
+fun ejer24(matriz:Array<Array<Int>>):Int{
+    var res = matriz[0][0]
+    for (i in matriz.indices){
+        for (z in matriz[0].indices){
+            if(matriz[i][z]>res){
+                res=matriz[i][z]
+            }
+        }
+    }
+    return res
+}
+
+fun ejer25(matriz:Array<Array<Int>>):Int{
+    var res = matriz[0][0]
+    for (i in matriz.indices){
+        for (z in matriz[0].indices){
+            if(matriz[i][z]<res){
+                res=matriz[i][z]
+            }
+        }
+    }
+    return res
+}
+
+fun ejer26(text:String):String{
+    var lista= text.split(" ")
+    var res=lista[0]
+    for (i in lista.indices){
+        if(lista[i].length>res.length){
+            res=lista[i]
+        }
+    }
+
+    return res
+}
+
+fun ejer27(text:String):String{
+    var lista= text.split(" ")
+    var res=lista[0]
+    for (i in lista.indices){
+        if(lista[i].length<res.length){
+            res=lista[i]
+        }
+    }
+
+    return res
+}
+
+fun ejer28(text:String):Boolean{
+    var lista=text.split("")
+    var siono=true
+    for (i in lista.indices){
+        for (z in 0 .. 9){
+            if(lista[i].equals(z.toString())){
+                siono=false
+            }
+        }
+
+    }
+    return siono
+}
+
+fun ejer29(text:String, text2:String):Boolean{
+    var siono=true
+    var palabra1=text.split("")
+    var palabra2=text.split("")
+    for (i in 0 .. text.length){
+        for (z in 0 .. text2.length){
+
+        }
+    }
+    return  siono
+}
