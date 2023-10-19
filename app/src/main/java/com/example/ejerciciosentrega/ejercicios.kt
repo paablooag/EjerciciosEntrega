@@ -51,7 +51,7 @@ fun main() {
 
     println(ejer28("holapepe"))
 
-    println(ejer29("paco", "sydg"))
+    println(ejer29("paco", "paco"))
     }
 
 
@@ -360,13 +360,25 @@ fun ejer28(text:String):Boolean{
 }
 
 fun ejer29(text:String, text2:String):Boolean{
-    var siono=true
-    var palabra1=text.split("")
-    var palabra2=text.split("")
-    for (i in 0 .. text.length){
-        for (z in 0 .. text2.length){
 
+    var confirmar= BooleanArray(text.length)
+
+    var z=0
+    loop1@ for (i in text.indices){
+        loop2@ for (z in text2.indices){
+            if(text[i].equals(text2[z])){
+                confirmar[i]=false
+                continue@loop1
+            }else{
+                confirmar[i]=true
+            }
         }
     }
-    return  siono
+    for (i in confirmar.indices){
+        if(confirmar[i]==false){
+            return true
+        }
+    }
+    return  false
 }
+
