@@ -449,4 +449,35 @@ fun ejer33(numeroDecimal: Int):String{
     return resultado.toString()
 }
 
-//lo siento no me ha dado tiempo a los ultimos, porfavor puntuamelos, me he esforzado, lo juro :(
+fun ejercicio34encriptar(cadena:String):String{
+    var cadenaRev = cadena.reversed()
+    var encriptar = StringBuilder()
+    for(caracter in cadenaRev){
+        when(caracter){
+            'a' -> encriptar.append("1")
+            'e' -> encriptar.append("2")
+            'i' -> encriptar.append("3")
+            'o' -> encriptar.append("4")
+            'u' -> encriptar.append("5")
+            else -> encriptar.append(caracter)
+        }
+    }
+    return encriptar.toString()
+}
+fun ejercicio34desencriptar(cadena:String):String{
+    var desencriptar = StringBuilder()
+
+    for(caracter in cadena){
+        when(caracter){
+            '1' -> desencriptar.append("a")
+            '2' -> desencriptar.append("e")
+            '3' -> desencriptar.append("i")
+            '4' -> desencriptar.append("o")
+            '5' -> desencriptar.append("u")
+            else -> desencriptar.append(caracter)
+        }
+    }
+    return desencriptar.toString().reversed()
+}
+
+//lo siento no me ha dado tiempo al ultimo, porfavor puntuamelos, me he esforzado, lo juro :(
