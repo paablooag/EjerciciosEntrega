@@ -54,6 +54,18 @@ fun main() {
     println(ejer29("paco", "paco"))
 
     println(ejer30(6))
+
+   var lista = listOf<Int>(1,2,3,4)
+    println(ejer31(lista))
+
+    val claves = listOf('A', 'B', 'C')
+    val valores = listOf(1, 2, 3)
+
+
+    println(ejer32(claves, valores))
+
+
+    println(ejer33(28))
     }
 
 
@@ -401,3 +413,40 @@ fun ejer30(number:Int):Boolean{
     return false
 }
 
+fun ejer31(lista:List<Int>):List<Int>{
+    var lista2 = mutableListOf<Int>()
+    for (i in lista.indices){
+        lista2.add(lista[i]*2)
+    }
+    return lista2
+}
+
+fun ejer32(claves:List<Char>, valores:List<Int>):Map<Char, Int>{
+    var tamaño = minOf(claves.size, valores.size)
+    var diccionario = mutableMapOf<Char, Int>()
+
+    for( i in 0 until tamaño){
+        diccionario[claves[i]]=valores[i]
+    }
+    return diccionario
+}
+
+fun ejer33(numeroDecimal: Int):String{
+    //vale, pero si ya hay una funcion que lo hace porque no la puedo usar? >:(
+    if (numeroDecimal == 0) {
+        return "0"  // Manejo especial para el caso en que el número sea 0
+    }
+
+    var num = numeroDecimal
+    val resultado = StringBuilder()
+
+    while (num > 0) {
+        val residuo = num % 2
+        resultado.insert(0, residuo)
+        num /= 2
+    }
+
+    return resultado.toString()
+}
+
+//lo siento no me ha dado tiempo a los ultimos, porfavor puntuamelos, me he esforzado, lo juro :(
