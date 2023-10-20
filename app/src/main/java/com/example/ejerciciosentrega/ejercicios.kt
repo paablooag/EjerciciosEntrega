@@ -434,7 +434,7 @@ fun ejer32(claves:List<Char>, valores:List<Int>):Map<Char, Int>{
 fun ejer33(numeroDecimal: Int):String{
     //vale, pero si ya hay una funcion que lo hace porque no la puedo usar? >:(
     if (numeroDecimal == 0) {
-        return "0"  // Manejo especial para el caso en que el número sea 0
+        return "0"  
     }
 
     var num = numeroDecimal
