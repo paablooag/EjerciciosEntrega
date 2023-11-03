@@ -189,7 +189,7 @@ fun ejer10(n: Int): Int {
         numero=numero2
         numero2=numero
     }
-    for (i in n1 downTo  1){
+    for (i in n1 downTo   1){
         if(n1%i==0&&n2%i==0){
             res=i
             break
@@ -244,13 +244,23 @@ fun ejer10(n: Int): Int {
 //ejercicio15
     fun ejer15(array1:IntArray, array2:IntArray):BooleanArray{
 
-       var resultado = BooleanArray(array1.size)
+        var array = BooleanArray(array1.size)
+
+    for (i in array1.indices){
+        array[i] = array1[i] == array2[i]
+    }
+    return array
+
+    /*
+    var resultado = BooleanArray(array1.size)
 
         for (i in array1.indices){
             resultado[i] = array1[i] == array2[i]
         }
 
     return resultado
+
+     */
     }
 
 //ejercicio20
@@ -373,20 +383,22 @@ fun ejer29(text:String, text2:String):Boolean{
     return  false
 }
 
-fun ejer30(number:Int):Boolean{
-    if(number<0){
+fun ejer30(numero:Int):Boolean{
+    if (numero < 0) {
         return false
     }
 
-    var suma=0
-    var n=1
-    while(suma<number){
-        suma+=n
-        if(suma==number){
+    var n = 1
+    var triangular = 0
+
+    while (triangular < numero) {
+        triangular = n * (n + 1) / 2
+        if (triangular == numero) {
             return true
         }
-        return false
+        n++
     }
+
     return false
 }
 
