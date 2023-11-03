@@ -25,7 +25,7 @@ fun main() {
 
         println(ejer10(9))
 
-        println(ejer11(12,12))
+        println(ejer11(16,25))
 
         println(ejer12(5444))
 
@@ -91,7 +91,7 @@ fun main() {
         return sumatoria
     }
 
-    //Ejercicios3
+    //ejercicios3
     fun distancia(double: Double): Double{
         return double*1.6
     }
@@ -121,34 +121,16 @@ fun main() {
 
     //ejercicios6
     fun contar2(frase: String, frase2:String):Int{
-        var contador=0
-        var contFrase=0
-        var contadorfrase=frase.length
-        var elementopito = frase[0]
-
-        for(i in frase) {
-            if (contador>0) {
-                if(i==frase[contador]){
-                    contador++
-                }else{
-                    contador=0
-                }
-            } else {
-                if (i == elementopito) {
-                    contFrase++
-                }
-            }
-        }
-        return  contFrase
+       val partes = frase.split(frase2)
+        return partes.size-1
     }
-
 
     //ejercicio7
     fun ejer7(frase: String):String{
         var arrayPalabra = frase.split(" ")
         var res="";
         for (i in arrayPalabra.indices){
-            res+=arrayPalabra[i][0].uppercase()+arrayPalabra[i].substring(1)+" "
+            res+=arrayPalabra[i].capitalize()+" "
         }
         return res
     }
@@ -160,22 +142,23 @@ fun main() {
         var numero2 = numero
         while (numero2%10!=0){
             cifra=numero2%10
-            numero2 = numero2/10
+            numero2 /= 10
             res+=cifra
         }
         return res
+
     }
 
     //ejercicio9
 
     fun ejer9(numero: Int, numero2: Int): Int{
-        var res=0
-
-        for (i in numero .. 0 ){
-            res=numero2%numero
-
+        var res = numero
+        var n2 = numero2
+        while (n2 != 0) {
+            var n = n2
+            n2 = res % n2
+            res = n
         }
-
         return res
     }
 
@@ -197,27 +180,25 @@ fun ejer10(n: Int): Int {
 
 //ejercicio11
     fun ejer11(n1:Int, n2:Int):Boolean{
-
-    var fact1=0
-    var fact2=0
-
-    for (n in 1 .. n1){
-        if(n1%n==0){
-            fact1=n
+    var aux=0
+    var numero=n1
+    var numero2=n2
+    var res=0
+    if(numero>numero2){
+        aux=numero
+        numero=numero2
+        numero2=numero
+    }
+    for (i in n1 downTo  1){
+        if(n1%i==0&&n2%i==0){
+            res=i
+            break
         }
     }
-    for (n in 1 .. n2){
-        if(n1%n==0){
-            fact2=n
-        }
+    if(res==1){
+        return true
     }
-
-    if(fact1!=0 && fact2!=0){
-        if(fact1==fact2){
-            return false
-        }
-    }
-    return true
+    return false
     }
 
 //ejercicio12
@@ -266,11 +247,7 @@ fun ejer10(n: Int): Int {
        var resultado = BooleanArray(array1.size)
 
         for (i in array1.indices){
-            if(array1[i]!=array2[i]){
-                resultado[i]=false
-            }else{
-                resultado[i]=true
-            }
+            resultado[i] = array1[i] == array2[i]
         }
 
     return resultado
